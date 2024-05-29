@@ -1,0 +1,16 @@
+text = "Hello this is a test phrase to test out the script for finding the frequency of words in this test thank you!"
+
+def word_frequency(text):
+    words = text.split()
+    frequency = {}
+    for word in words:
+        try:
+            word = str(word)
+        except ValueError:
+            continue
+        frequency[word] = frequency.get(word, 0) + 1
+    return frequency
+
+result = word_frequency(text)
+
+print("Word frequency is", result)
