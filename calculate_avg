@@ -1,0 +1,11 @@
+numbers = [11, 22, 38, 41, 56, 78, 88]
+def calculate_avg(numbers):
+    total = sum(numbers)
+    count = len(numbers)
+    if count == 0:
+        return 0
+    average = total // count
+    return average
+
+result = calculate_avg(numbers)
+print("Average is:", result)
