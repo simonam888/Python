@@ -1,0 +1,51 @@
+import random
+
+class Crystal:
+    def __init__(self, name, quantity):
+        self.name = name
+        self.quantity = quantity
+        self.code = self.generate_code()
+
+    def generate_code(self):
+        crystal_type = self.name.split()[0].lower()
+        crystal_prefix = crystal_type[:3].upper()
+        random_number = random.randint(100, 999)
+        crystal_code = crystal_prefix + str(random_number) + '-' + crystal_type
+        return crystal_code
+
+class CrystalShop:
+    def __init__(self):
+        self.inventory = {}
+
+    def add_crystal(self, name, quantity):
+        if name in self.inventory:
+            self.inventory[name].quantity += quantity
+        else:
+            self.inventory[name] = Crystal(name, quantity)
+
+    def check_quantity(self, name):
+        if name in self.inventory:
+            return self.inventory[name].quantity
+        else:
+            return 0
+
+def main():
+    shop = CrystalShop()
+    
+    shop.add_crystal("Amethyst", 10)
+    shop.add_crystal("Citrine", 5)
+    shop.add_crystal("Labradorite", 7)
+    
+    print("Available quantity of Amethyst:", shop.check_quantity("Amethyst"))
+    print("Available quantity of Citrine:", shop.check_quantity("Citrine"))
+    print("Available quantity of Labradorite:", shop.check_quantity("Labradorite"))
+    
+    shop.add_crystal("Amethyst", 3)
+    shop.add_crystal("Citrine", 2)
+    
+    print("Available quantity of Amethyst:", shop.check_quantity("Amethyst"))
+    print("Available quantity of Citrine:", shop.check_quantity("Citrine"))
+    print("Available quantity of Labradorite:", shop.check_quantity("Labradorite"))
+
+if __name__ == "__main__":
+    main()
