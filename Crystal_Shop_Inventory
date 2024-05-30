@@ -1,3 +1,5 @@
+#This project is for managing a Crystal Shop Inventory. You can add any crystals, generate codes for each crystal and check their quantity!
+
 import random
 
 class Crystal:
