@@ -1,0 +1,30 @@
+#This project is for you to test how fast you can type :)! Below I have attached a small paragraph you can copy in order to test it if you'd like!
+
+import time
+
+def typing_speed_test():
+    input("Press Enter when you are ready to start typing...")
+
+    start_time = time.time()
+    typed_text = input("Start typing and press Enter when done: ")
+    end_time = time.time()
+
+    elapsed_time = end_time - start_time
+    number_of_letters = len(typed_text)
+    words = typed_text.split()
+    number_of_words = len(words)
+
+    letters_per_minute = (number_of_letters / elapsed_time) * 60
+    words_per_minute = (number_of_words / elapsed_time) * 60
+
+    print(f"\nYou typed {number_of_letters} letters and {number_of_words} words in {elapsed_time:.2f} seconds. You're super fast")
+    print(f"Your typing speed is {letters_per_minute:.2f} letters per minute and {words_per_minute:.2f} words per minute. You are faster than Sonic the hedgehog!")
+
+if __name__ == "__main__":
+    typing_speed_test()
+
+#It is debated whether the fourth leaf is caused genetically or environmentally. Its relative rarity (1 in 5,000 clovers)
+#suggests a possible recessive gene appearing at a low frequency. Alternatively, four-leaf clovers could be caused by
+#somatic mutation or a developmental error of environmental causes. They could also be caused by the interaction of several genes
+#that happen to segregate in the individual plant. It is possible all four explanations could apply to individual cases.
+#This means that multiple four-leaf clovers could be found in the same cloverplant.
